@@ -68,11 +68,52 @@ function cpchild_enqueue_styles() {
 	
 	);
 
+	// add tooltip style
+	wp_enqueue_style(
+
+		'cp_tooltip_css',
+		get_stylesheet_directory_uri() . '/assets/css/jquery.qtip.css',
+		array( 'cp_reset_css' ),
+		'1.0', // version
+		'all' // media
+
+	);
+
 }
 
 // add a filter for the above
 add_filter( 'wp_enqueue_scripts', 'cpchild_enqueue_styles', 110 );
 
+
+function cpchild_enqueue_script () {
+
+  wp_enqueue_script(
+    'cp_tinymce',
+    '//cdnjs.cloudflare.com/ajax/libs/tinymce/3.5.8/tiny_mce.js',
+    array(),
+    '20130911',
+    true
+  );
+
+  wp_enqueue_script(
+    'cp_tooltip_js',
+    '//cdnjs.cloudflare.com/ajax/libs/qtip2/2.1.1/jquery.qtip.min.js',
+    array('jquery'),
+    '20130911',
+    true
+  );
+
+  wp_enqueue_script(
+    'cp_tooltip_js_local',
+    get_stylesheet_directory_uri() . '/assets/js/tooltip.js',
+    array('jquery'),
+    '20130911',
+    true
+  );
+
+}
+
+add_filter( 'wp_enqueue_scripts', 'cpchild_enqueue_script', 111 );
 
 
 // adding clickable MLA logo to header
