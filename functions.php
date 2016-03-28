@@ -65,7 +65,7 @@ function cpchild_enqueue_styles() {
 
 		'cp_tooltip_css',
 		get_stylesheet_directory_uri() . '/assets/css/jquery.qtip.css',
-		array( 'cp_reset_css' ),
+		array( 'cp_layout_css' ),
 		'1.0', // version
 		'all' // media
 
